@@ -1,0 +1,2 @@
+class BowlingScore
+end
