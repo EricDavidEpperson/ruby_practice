@@ -7,6 +7,6 @@ class BowlingScore
   end
 
   def game_score
-    score = @rolls
+    score = @rolls.inject(:+)
   end
 end

@@ -4,7 +4,13 @@ require_relative 'bowling_score'
 class BowlingScoreTest < MiniTest::Unit::TestCase
 
   def test_score_equals_roll
+    skip
     score = BowlingScore.new(10)
+    assert_equal 10, score.game_score
+  end
+
+  def test_score_euals_more_than_one_roll
+    score = BowlingScore.new ([5,5])
     assert_equal 10, score.game_score
   end
 end
