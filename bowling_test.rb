@@ -19,4 +19,10 @@ class BowlingScoreTest < MiniTest::Unit::TestCase
     score = BowlingScore.new ([10, 5, 5])
     assert_equal 20, score.game_score
   end
+
+  def test_score_spare
+    score = BowlingScore.new ([5,5,5])
+    assert_equal 15, score.game_score
+  end
+  
 end
