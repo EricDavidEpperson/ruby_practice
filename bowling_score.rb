@@ -7,20 +7,33 @@ class BowlingScore
   end
 
   def game_score
-    if @rolls[0]==10
-      strike
-    else @rolls.slice(0,2).inject(:+) == 10
-      spare
-    end
+    frame_scores
+    score = @frames.flatten!.inject(:+)
   end
 
   private
 
   def strike
-    score = @rolls.slice(0,3).inject(:+)
+    @frames << @rolls.slice(0,3)
+    @rolls.slice!(0)
   end
 
   def spare
-    score = @rolls.slice(0,3).inject(:+)
+    @frames << @rolls.slice(0,3)
+    @rolls.slice!(0,2)
+  end
+
+  def frame_scores
+    @frames = []
+    frame = 0
+    while frame < 10 do
+      if @rolls[0]==10
+        strike
+      elsif @rolls.slice(0,2).inject(:+)==10
+        spare
+      else @frames << @rolls.slice!(0,2)
+      end
+      frame +=1
+    end
   end
 end

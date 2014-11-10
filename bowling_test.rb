@@ -16,11 +16,13 @@ class BowlingScoreTest < MiniTest::Unit::TestCase
   end
 
   def test_score_strike
+    skip
     score = BowlingScore.new ([10, 5, 5])
     assert_equal 20, score.game_score
   end
 
   def test_score_spare
+    skip
     score = BowlingScore.new ([5,5,5])
     assert_equal 15, score.game_score
   end
@@ -34,4 +36,6 @@ class BowlingScoreTest < MiniTest::Unit::TestCase
     score = BowlingScore.new ([10,10,10,10,10,10,10,10,10,10,10,10])
     assert_equal 300, score.game_score
   end
+
+  #test for invalid game too short/too long/wrong numbers for score
 end
