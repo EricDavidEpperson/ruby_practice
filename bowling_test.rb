@@ -37,5 +37,10 @@ class BowlingScoreTest < MiniTest::Unit::TestCase
     assert_equal 300, score.game_score
   end
 
+  def test_score_game_all_spares
+    score = BowlingScore.new([5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5,5])
+    assert_equal 150, score.game_score
+  end
+
   #test for invalid game too short/too long/wrong numbers for score
 end
